@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/bradeythedev/kingfisher/issues"
   },
-  "homepage": "https://github.com/bradeythedev/kingfisher#readme"
+  "homepage": "https://github.com/bradeythedev/kingfisher#readme",
+  "dependencies": {
+    "moo": "^0.5.1",
+    "nearly": "^1.8.1"
+  }
 }
