@@ -1,0 +1,19 @@
+{
+  "name": "kingfisher",
+  "version": "0.1.0",
+  "description": "A small and simple language with a unique syntax that can be embedded in webpages",
+  "main": "index.js",
+  "scripts": {
+    "test": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradeythedev/kingfisher.git"
+  },
+  "author": "Bradley May (bradeythedev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bradeythedev/kingfisher/issues"
+  },
+  "homepage": "https://github.com/bradeythedev/kingfisher#readme"
+}
