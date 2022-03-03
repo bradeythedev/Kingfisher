@@ -4,7 +4,9 @@
   "description": "A small and simple language with a unique syntax that can be embedded in webpages",
   "main": "index.js",
   "scripts": {
-    "test": "index.js"
+    "run-main": "index.js",
+    "test-lexer": "node lexer.js",
+    "test-parser-gen": "nearleyc kingfisher.ne -o kingfisherparser.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,6 @@
   "dependencies": {
     "moo": "^0.5.1",
     "mz": "^2.7.0",
-    "nearly": "^1.8.1"
+    "nearley": "^2.20.1"
   }
 }
