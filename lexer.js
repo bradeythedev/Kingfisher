@@ -1,4 +1,5 @@
 const moo = require('moo')
+const fs = require("mz/fs")
 
 let lexer = moo.compile({
     WS:      /[ \t]+/,
@@ -7,6 +8,8 @@ let lexer = moo.compile({
     string:  /"(?:\\["\\]|[^\n"\\])*"/,
     lparen:  '(',
     rparen:  ')',
+    lcurl:   '{',
+    rcurl:   '}',
     keyword: ['while', 'if', 'else', 'moo', 'cows'],
     varid:   /[-]?[a-zA-Z_0-9]+/,
     funid:   /[.][a-zA-Z_0-9]+/,
@@ -18,17 +21,30 @@ let lexer = moo.compile({
     noteq:   /[!][=]/, 
     eq:      /[=]+/,
     not:     /[!]/,
+    and:     /[&&]/,
+    or:      /[||]/,
     gr:      /[>]/,
     ls:      /[<]/,
+    async:   /[&]/,
+    rand:    /[|]/,
+    add:     /[+]/,
+    minus:   /[-]/,
+    times:   /[*]/,
+    divide:  /[/]/,
     NL:      { match: /\n/, lineBreaks: true },
 })
 
-lexer.reset(`moo 69("poogers") -poognum .coolfun --newthing: 69 poog ..newfunky < > = == ! != =< =>`)
+async function main() {
+    const code = (await fs.readFile("example1.kf")).toString()
+    lexer.reset(code)
 
-while (true) {
-    const token = lexer.next();
-    if (!token) {
-        break;
+    while (true) {
+        const token = lexer.next();
+        if (!token) {
+            break;
+        }
+        console.log(token)
     }
-    console.log(token)
 }
+
+main()
