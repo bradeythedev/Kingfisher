@@ -1,6 +1,13 @@
-const moo = require('moo')
-const fs = require("mz/fs")
+#!/usr/bin/node
 
+// Dependencies
+const moo = require("moo");
+const fs = require("mz/fs");
+
+// Misc
+const kfversion = "0.1.0";
+
+// Moo syntax
 let lexer = moo.compile({
     WS:      /[ \t]+/,
     comment: /\/\/.*?$/,
@@ -32,19 +39,21 @@ let lexer = moo.compile({
     times:   /[*]/,
     divide:  /[/]/,
     NL:      { match: /\n/, lineBreaks: true },
-})
+});
 
+// Main lexer function
 async function main() {
-    const code = (await fs.readFile("example1.kf")).toString()
-    lexer.reset(code)
+    const code = (await fs.readFile("example1.kf")).toString();
+    lexer.reset(code);
 
     while (true) {
         const token = lexer.next();
         if (!token) {
             break;
         }
-        console.log(token)
+        console.log(token);
     }
 }
 
-main()
+// If lexer is executed standalone, run main()
+main();
