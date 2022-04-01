@@ -1,10 +1,31 @@
-//Comment
+# This is a comment
 
---myVariable: 7
 
-..myFunction() {
-    myVariable: myVariable + 2
-    --myOtherVariable: "Hello!"
+
+myObject : {                      # This is an object, which serves many purposes: a function, a function that returns a value, or a struct/class.
+
+    myNewNumber : ^(@number)      # This variable is declared as a number, and that type can't be changed. The "^" means to take this from its method's arguments. The variables are taken from the arguments in the order they are declared here.
+
+    myNewString : ^(@string)      # This variable is declared as a string, and cannot be changed.
+
+    myNewVar : ^                  # This is interpreted as @any and will always be changeable from number to string at any point.
+
 }
 
-.myFunction()
+
+
+myObject ()                       # This is called a method, because it is used to evaluate an object, and return a value; a method for creating a value. It can take arguments.
+
+
+
+myArray : [ 6, "Hello", "t" ]     # This is an array, and its value can be changed. It can contain anything, including objects, methods, and even other arrays.
+
+myEmptyArray : [  ]               # This array has been created without a value, because it is empty.
+
+
+
+myNumber : 3                      # This variable has been created as type "@number", or simply a number, which it has defaulted to because of its value. This type cannot be changed later, unless it is manually declared as type "@any".
+
+myString : "L"                    # This variable has been created as type "@string", or simply a string, which it has defaulted to because of its value.
+
+myVariable @any :                 # This variable is of type any, and can be changed between number or string at will. In the place where its value should be, there is only whitespace, which represents null.
